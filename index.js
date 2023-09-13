@@ -5,6 +5,7 @@ const app = express();
 const router = require("./router");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 // DB setup
 mongoose.connect(process.env.MONGODB_URI, {
