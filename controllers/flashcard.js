@@ -19,7 +19,14 @@ const addFlashcard = async function (req, res, next) {
   res.status(200).send({ flashcard });
 };
 
+const getRandomFlashcard = async function (req, res, next) {
+  const randomFlashcard = await Flashcard.aggregate([{$sample: { size: 1 }}]);
+
+  res.send({ randomFlashcard });
+}
+
 module.exports = {
   getFlashcards,
   addFlashcard,
+  getRandomFlashcard,
 };
